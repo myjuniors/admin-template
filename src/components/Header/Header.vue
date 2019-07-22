@@ -2,7 +2,7 @@
   <div class="navContainer">
     <div class="left-logo">
       <img src="./images/logo.png" alt="logo">
-      <span>后台管理系统模板</span>
+      <span>后台管理系统</span>
     </div>
     <el-menu
       :default-active="activeIndex2"
@@ -12,20 +12,9 @@
       background-color="#001D24"
       text-color="#fff"
       active-text-color="#ffd04b">
-      <el-menu-item index="1">处理中心</el-menu-item>
-      <el-submenu index="2">
-        <template slot="title">我的工作台</template>
-        <el-menu-item index="2-1">选项1</el-menu-item>
-        <el-menu-item index="2-2">选项2</el-menu-item>
-        <el-menu-item index="2-3">选项3</el-menu-item>
-        <el-submenu index="2-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-          <el-menu-item index="2-4-2">选项2</el-menu-item>
-          <el-menu-item index="2-4-3">选项3</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-menu-item index="3">消息中心</el-menu-item>
+      <el-menu-item index="1">我的工作台</el-menu-item>
+      <el-menu-item index="2">任务列表</el-menu-item>
+      <el-menu-item index="3">个人中心</el-menu-item>
     </el-menu>
     <div class="right-user">
       <el-dropdown @command="handleCommand">
@@ -67,16 +56,16 @@
 
 <style rel="stylesheet/less" lang="less" scoped>
   .navContainer {
-    width: 1200px;
-    margin: 0 auto;
     display: flex;
+    justify-content: space-between;
     height: 65px;
+    padding: 0 25px;
     background-color: #001D24;
   }
   .left-logo {
     display: flex;
     align-items: center;
-    width: 300px;
+    width: 280px;
     height: 66px;
     img {
       width: 80px;
@@ -111,7 +100,6 @@
   .el-menu {
     width: 960px;
     height: 66px;
-    padding: 0 30px;
     .el-menu-item, .el-submenu /deep/ .el-submenu__title {
       height: 65px;
       line-height: 65px;  

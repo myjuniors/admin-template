@@ -4,7 +4,7 @@
 
       <div class="title-container">
         <h3 class="title">
-          后台管理系统模板
+          后台管理系统
         </h3>
       </div>
 
@@ -119,6 +119,8 @@ import { setTimeout } from 'timers';
       .title-container {
         .title {
           line-height: 50px;
+          margin-bottom: 15px;
+          font-size: 22px;
         }
       }
       .el-input {
