@@ -1,4 +1,4 @@
-# my-admin-template
+# admin-template
 - 自己根据自己项目的需求维护的一个后台管理系统模板，如果有需要，可以下载。
 - 希望对有帮助的同学，帮忙点个star或者 fork 一下。
 
