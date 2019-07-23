@@ -4,7 +4,7 @@
 
       <div class="title-container">
         <h3 class="title">
-          后台管理系统
+          登录后台管理系统
         </h3>
       </div>
 
@@ -35,9 +35,15 @@
         />
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" style="width:70%;margin:20px 0;" @click.native.prevent="handleLogin">
+      <el-button :loading="loading" type="primary" class="loginBtn" @click.native.prevent="handleLogin">
         登录
       </el-button>
+
+       <div class="toggleContainer">
+         <span>还没有账号？</span>
+         <el-button type="text" @click="goRegistry">前往注册</el-button>
+       </div>
+
     </el-form>
   </div>
 </template>
@@ -89,38 +95,55 @@ import { setTimeout } from 'timers';
             return false
           }
         })
+      },
+      goRegistry () {
+        this.$router.replace('/registry')
       }
     }
   }
 </script>
 
 <style rel="stylesheet/less" lang="less" scoped>
-  @bg:#283443;
-  @light_gray:#eee;
-  @cursor: #fff;
+  @import "../../styles/common/common.less";
 
   .loginContainer {
-    position: relative; 
-    width: 100%;
-    height: 100%;
+    .bgContainer;
     background-image: url('./images/bg.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
     .login-form {
       width: 360px;
       height: 320px;
-      padding-top: 20px;
+      padding-top: 10px;
       position: absolute;
-      right: 30px;
+      left: 50%;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translate(-50%, -50%);
       background-color: #fff;
       text-align: center;
+      border-radius: 8px;
+      .el-form-item {
+        &:nth-child(3) {
+          margin-bottom: 10px;
+        }
+      }
+      .toggleContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+          font-size: 14px;
+        }
+      }
+      .loginBtn {
+        width: 70%;
+        margin: 10px 0;
+      }
       .title-container {
         .title {
           line-height: 50px;
           margin-bottom: 15px;
           font-size: 22px;
+          color: #333;
+          font-weight: 700;
         }
       }
       .el-input {
@@ -129,16 +152,16 @@ import { setTimeout } from 'timers';
         width: 85%;
         input {
           background: transparent;
-          border: 0px;
+          border: 0;
           -webkit-appearance: none;
-          border-radius: 0px;
+          border-radius: 0;
           padding: 12px 5px 12px 15px;
           color: @light_gray;
           height: 47px;
           caret-color: @cursor;
 
           &:-webkit-autofill {
-            -webkit-box-shadow: 0 0 0px 1000px @bg inset !important;
+            -webkit-box-shadow: 0 0 0 1000px @bg inset !important;
             -webkit-text-fill-color: @cursor !important;
           }
         }
