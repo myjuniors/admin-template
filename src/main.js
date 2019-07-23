@@ -7,6 +7,7 @@ import router from './router'
 import store from './store'
 import './styles/common/reset.css'
 import './plugins/element.js'
+import './personalRole'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
