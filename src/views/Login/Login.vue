@@ -33,6 +33,9 @@
           auto-complete="on"
           @keyup.enter.native="handleLogin"
         />
+        <div class="forgetContainer">
+          <el-button type="text" class="forgetPassword">忘记密码？</el-button>
+        </div>
       </el-form-item>
 
       <el-button :loading="loading" type="primary" class="loginBtn" @click.native.prevent="handleLogin">
@@ -123,6 +126,19 @@ import { setTimeout } from 'timers';
       .el-form-item {
         &:nth-child(3) {
           margin-bottom: 10px;
+          position: relative;
+        }
+        .forgetContainer {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          height: 20px;
+          text-align: right;
+          line-height: 20px;
+          .forgetPassword {
+            padding: 0 20px;
+          }
         }
       }
       .toggleContainer {
