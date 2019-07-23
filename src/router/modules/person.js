@@ -9,7 +9,7 @@ import AuthorityManagement from '../../views/Home/AuthorityManagement/AuthorityM
 import TaskList from '../../views/Home/TaskList/TaskList.vue'
 import PersonalCenter from '../../views/Home/PersonalCenter/PersonalCenter.vue'
 
-const pageRoutes = [
+const personRoutes = [
   {
     path: '/',
     redirect: '/login'
@@ -73,4 +73,4 @@ const pageRoutes = [
   }
 ]
 
-export default pageRoutes
+export default personRoutes
