@@ -14,7 +14,11 @@
       active-text-color="#ffd04b">
       <el-menu-item index="1">我的工作台</el-menu-item>
       <el-menu-item index="2">任务列表</el-menu-item>
-      <el-menu-item index="3">个人中心</el-menu-item>
+      <el-menu-item index="3">消息列表</el-menu-item>
+      <el-menu-item index="4">数据总览</el-menu-item>
+      <el-menu-item index="5">权限管理</el-menu-item>
+      <el-menu-item index="6">个人中心</el-menu-item>
+      <el-menu-item index="7">系统设置</el-menu-item>
     </el-menu>
     <div class="right-user">
       <el-dropdown @command="handleCommand">
@@ -102,7 +106,9 @@
     height: 66px;
     .el-menu-item, .el-submenu /deep/ .el-submenu__title {
       height: 65px;
-      line-height: 65px;  
+      line-height: 76px;
+      font-size: 16px;
+      margin-right: 30px;
     }
   }
 </style>
