@@ -4,20 +4,18 @@
       <Header/>
     </div>
     <div class="mainContainer">
-      <LeftMenu/>
+
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
   import Header from '../../components/Header/Header.vue'
-  import LeftMenu from '../../components/LeftMenu/LeftMenu.vue'
 
   export default {
     name: 'Home',
     components: {
-      Header,
-      LeftMenu
+      Header
     }
   }
 </script>
