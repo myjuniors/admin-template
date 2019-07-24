@@ -1,7 +1,5 @@
 // 引入路由组件
 import Home from '../../views/Home/Home.vue'
-import Login from '../../views/Login/Login.vue'
-import Registry from '../../views/Registry/Registry.vue'
 
 import MyWorkBench from '../../views/Home/MyWorkBench/MyWorkBench.vue'
 import DataScreening from '../../views/Home/DataScreening/DataScreening.vue'
@@ -10,20 +8,6 @@ import TaskList from '../../views/Home/TaskList/TaskList.vue'
 import PersonalCenter from '../../views/Home/PersonalCenter/PersonalCenter.vue'
 
 const personRoutes = [
-  {
-    path: '/',
-    redirect: '/login'
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: Login
-  },
-  {
-    path: '/registry',
-    name: 'Registry',
-    component: Registry
-  },
   {
     path: '/home',
     name: 'home',
