@@ -11,7 +11,7 @@ import './personalRole'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
-
+console.log(process.env.VUE_APP_BASE_URL)
 new Vue({
   router,
   store,
