@@ -4,6 +4,7 @@
       <Header/>
     </div>
     <div class="mainContainer">
+      <LeftMenu/>
       <router-view/>
     </div>
   </div>
@@ -11,11 +12,13 @@
 
 <script type="text/javascript">
   import Header from '../../components/Header/Header.vue'
+  import LeftMenu from '../../components/LeftMenu/LeftMenu.vue'
 
   export default {
     name: 'Layout',
     components: {
-      Header
+      Header,
+      LeftMenu
     }
   }
 </script>
@@ -37,6 +40,6 @@
   .mainContainer {
     height: 100%;
     padding-top: 65px;
-    text-align: center;
+    display: flex;
   }
 </style>
