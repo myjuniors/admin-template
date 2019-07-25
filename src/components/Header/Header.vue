@@ -8,15 +8,14 @@
       :default-active="activeIndex"
       class="el-menu"
       mode="horizontal"
+      :router="isOpenRouter"
       @select="handleSelect"
       background-color="#001D24"
       text-color="#fff"
       active-text-color="#ffd04b">
-      <el-menu-item index="1">我的工作台</el-menu-item>
-      <el-menu-item index="2">任务列表</el-menu-item>
-      <el-menu-item index="3">数据总览</el-menu-item>
-      <el-menu-item index="4">权限管理</el-menu-item>
-      <el-menu-item index="5">个人中心</el-menu-item>
+      <el-menu-item index="/myWorkBench">我的工作台</el-menu-item>
+
+      <el-menu-item v-for="route in routes" :key="route.path" :index="route.path">{{route.meta.title}}</el-menu-item>
     </el-menu>
     <div class="right-user">
       <el-dropdown @command="handleCommand">
@@ -34,19 +33,31 @@
 </template>
 
 <script type="text/javascript">
+  import { mapState } from 'vuex'
   import { removeToken } from '../../untils/storage'
+
   export default {
     name: 'Header',
-    data() {
+    data () {
       return {
-        activeIndex: '1'
-      };
+        activeIndex: '/myWorkBench', // 默认激活的菜单
+        isOpenRouter: true // 开启导航路由模式
+      }
+    },
+    computed: {
+      ...mapState(['permission']),
+      routes () {
+        return this.permission.addRoutes
+      }
+    },
+    mounted () {
+      console.log(this.permission.addRoutes, '查看路由表');
     },
     methods: {
-      handleSelect(key, keyPath) {
+      handleSelect (key, keyPath) {
         console.log(key, keyPath);
       },
-      handleCommand(command) {
+      handleCommand (command) {
         if (command === 'logout') {
           removeToken()
           this.$router.replace('/login')

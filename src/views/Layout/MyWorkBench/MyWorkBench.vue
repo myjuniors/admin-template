@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    MyWorkBench
+    我是工作台页面
   </div>
 </template>
 

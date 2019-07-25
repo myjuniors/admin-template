@@ -49,7 +49,7 @@ service.interceptors.response.use(
         message: res.message,
         type: 'error',
         duration: 5 * 1000
-      });
+      })
       return Promise.reject(res)
     } else {
       // 不能返回 response.data 这是响应回来的 data的值
@@ -81,7 +81,7 @@ service.interceptors.response.use(
         message: error.message,
         type: 'error',
         duration: 5 * 1000
-      });
+      })
     }
     return Promise.reject(error)
   }

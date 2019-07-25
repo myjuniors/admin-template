@@ -70,7 +70,8 @@ router.beforeEach((to, from, next) => {
       next()
     } else {
       // 没匹配到的，全部重定向到登录页面
-      next(`/login?redirect=${to.path}`)
+      // next(`/login?redirect=${to.path}`)
+      next('/login')
       NProgress.done()
     }
   }

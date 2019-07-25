@@ -23,6 +23,7 @@
 <style rel="stylesheet/less" lang="less" scoped>
   .myContainer {
     position: relative;
+    height: 100%;
   }
   .menuContainer {
     width: 100%;
@@ -35,5 +36,7 @@
   }
   .mainContainer {
     height: 100%;
+    padding-top: 65px;
+    text-align: center;
   }
 </style>
