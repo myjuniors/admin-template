@@ -41,18 +41,20 @@ const permission = {
     addRoutes: []
   },
   mutations: {
-    SET_ROUTES: (state, routes) => {
+    [SET_ROUTES]: (state, routes) => {
       state.addRoutes = routes
       state.routes = constantRoutes.concat(routes)
     }
   },
   actions: {
-    generateRoutes ({ commit }, roles) {
+    GenerateRoutes ({ commit }, roles) {
       return new Promise(resolve => {
         let accessedRoutes
         if (roles.includes('admin')) {
           accessedRoutes = asyncRoutes || []
+          console.log('xxxxx', accessedRoutes)
         } else {
+          console.log('xxxxx')
           accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
         }
         commit(SET_ROUTES, accessedRoutes)

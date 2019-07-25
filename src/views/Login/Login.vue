@@ -53,7 +53,6 @@
 
 <script type="text/javascript">
   import { validUsername } from '../../untils/validate'
-import { setTimeout } from 'timers';
 
   export default {
     name: 'Login',
@@ -89,10 +88,15 @@ import { setTimeout } from 'timers';
         this.$refs.loginForm.validate(valid => {
           if (valid) {
             this.loading = true
-            setTimeout(() => {
-              this.loading = false
-              this.$router.replace('/home')
-            }, 3000)
+
+            this.$store.dispatch('Login', this.loginForm)
+              .then(() => {
+                this.$router.replace('/')
+                this.loading = false
+              })
+              .catch(() => {
+                this.loading = false
+              })
           } else {
             console.log('提交的信息是非法的')
             return false

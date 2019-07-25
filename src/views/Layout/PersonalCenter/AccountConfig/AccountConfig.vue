@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    PersonalCenter
+    我是账号配置
   </div>
 </template>
 
 <script type="text/javascript">
 
   export default {
-    name: "PersonalCenter"
+    name: "AccountConfig"
   }
 </script>
 

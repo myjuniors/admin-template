@@ -34,7 +34,7 @@
 </template>
 
 <script type="text/javascript">
-
+  import { removeToken } from '../../untils/storage'
   export default {
     name: 'Header',
     data() {
@@ -48,6 +48,7 @@
       },
       handleCommand(command) {
         if (command === 'logout') {
+          removeToken()
           this.$router.replace('/login')
         }
       }

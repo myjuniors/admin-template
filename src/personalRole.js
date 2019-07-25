@@ -15,7 +15,7 @@ NProgress.configure({ showSpinner: false }) // 进度条配置对象
 
 const whiteList = ['/login', '/registry'] // 放过的白名单
 
-router.beforeEach(async(to, from, next) => {
+router.beforeEach((to, from, next) => {
   // 进度条开始执行
   NProgress.start()
 
@@ -41,13 +41,21 @@ router.beforeEach(async(to, from, next) => {
           // 如果角色集合没有值
           // 获取用户信息 ( 第一次肯定没有值 )
           // roles的数据结构： [ 'admin' ] 或者是 [ 'developer', 'editor' ]
-          const { roles } = store.dispatch('GetUserInfo')
-          // 获取当前角色集合匹配到的路由菜单配置文件
-          const accessRoutes = store.dispatch('GenerateRoutes', roles)
-          // 动态生成路由
-          router.addRoutes(accessRoutes)
-          // 官方写法： hack方法 确保 addRoutes已完成、保证不出错
-          next({ ...to, replace: true })
+          store.dispatch('GetUserInfo')
+            .then(() => {
+              const roles = store.getters.roles
+              console.log(roles, '角色集合')
+              store.dispatch('GenerateRoutes', roles)
+                .then(() => {
+                  // 获取当前角色集合匹配到的路由菜单配置文件
+                  const accessRoutes = store.state.permission.addRoutes
+                  console.log(accessRoutes, '匹配到的路由表')
+                  // 动态生成路由
+                  router.addRoutes(accessRoutes)
+                  // 官方写法： hack方法 确保 addRoutes已完成、保证不出错
+                  next({ ...to, replace: true })
+                })
+            })
         } catch (error) {
           Message.error(error || '出现错误了')
           next(`/login?redirect=${to.path}`)

@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 import permission from './modules/permission'
-import { getToken } from '../untils/storage'
+import { getToken, setToken } from '../untils/storage'
 import {
   SET_TOKEN,
   SAVE_USER_INFO
@@ -28,10 +28,11 @@ export default new Vuex.Store({
     roles: state => state.roles
   },
   mutations: {
-    SET_TOKEN: (state, token) => {
+    [SET_TOKEN]: (state, token) => {
       state.token = token
+      setToken(token)
     },
-    SAVE_USER_INFO: (state, userInfo) => {
+    [SAVE_USER_INFO]: (state, userInfo) => {
       state.userInfo = userInfo
       state.roles = userInfo.roles
     }

@@ -1,16 +1,16 @@
 <template>
   <div class="container">
-    TaskList
+    我是车辆列表
   </div>
 </template>
 
 <script type="text/javascript">
 
   export default {
-    name: "TaskList"
+    name: "VehicleList"
   }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
+<style lang="stylus" rel="stylesheet/stylus" scoped>
 
 </style>

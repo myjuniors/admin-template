@@ -4,7 +4,7 @@
       <Header/>
     </div>
     <div class="mainContainer">
-
+      <router-view/>
     </div>
   </div>
 </template>
@@ -13,7 +13,7 @@
   import Header from '../../components/Header/Header.vue'
 
   export default {
-    name: 'Home',
+    name: 'Layout',
     components: {
       Header
     }

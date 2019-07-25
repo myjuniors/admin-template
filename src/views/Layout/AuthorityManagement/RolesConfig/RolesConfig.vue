@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    AuthorityManagement
+    我是角色配置
   </div>
 </template>
 
 <script type="text/javascript">
 
   export default {
-    name: "AuthorityManagement"
+    name: "RolesConfig"
   }
 </script>
 

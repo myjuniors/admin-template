@@ -11,6 +11,8 @@ Vue.use(Router)
 
 import personRoutes from './modules/person'
 
+import Layout from '../views/Layout/Layout.vue'
+import MyWorkBench from '../views/Layout/MyWorkBench/MyWorkBench.vue'
 import Login from '../views/Login/Login.vue'
 import Registry from '../views/Registry/Registry.vue'
 import NoAccess from '../views/Registry/Registry.vue'
@@ -29,15 +31,31 @@ export const constantRoutes = [
     hidden: true
   },
   {
+    path: '/404',
+    component: NoFound,
+    hidden: true
+  },
+  {
     path: '/401',
     component: NoAccess,
     hidden: true
   },
   {
-    path: '/404',
-    component: NoFound,
-    hidden: true
-  }
+    path: '/',
+    component: Layout,
+    redirect: '/myWorkBench',
+    children: [
+      {
+        path: 'myWorkBench',
+        component: MyWorkBench,
+        name: 'MyWorkBench',
+        meta: {
+          title: '我的工作台',
+          affix: true
+        }
+      }
+    ]
+  },
 ]
 
 export default new Router({

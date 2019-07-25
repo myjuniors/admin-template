@@ -1,16 +1,16 @@
 <template>
   <div class="container">
-    DataScreening
+    我是车辆数据
   </div>
 </template>
 
 <script type="text/javascript">
 
   export default {
-    name: "DataScreening"
+    name: "VehicleData"
   }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
+<style lang="stylus" rel="stylesheet/stylus" scoped>
 
 </style>
