@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    我是工作台页面
+    我是审批任务页面
   </div>
 </template>
 
 <script type="text/javascript">
 
   export default {
-    name: "MyWorkBench"
+    name: "CheckTask"
   }
 </script>
 

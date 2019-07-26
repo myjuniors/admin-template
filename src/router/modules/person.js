@@ -1,11 +1,34 @@
 // 引入路由组件
 import Layout from '../../views/Layout/Layout.vue'
+import CheckTask from '../../views/Layout/MyWorkBench/CheckTask/CheckTask.vue'
 import VehicleList from '../../views/Layout/TaskList/VehicleList/VehicleList.vue'
 import VehicleData from '../../views/Layout/DataScreening/VehicleData/VehicleData.vue'
 import RolesConfig from '../../views/Layout/AuthorityManagement/RolesConfig/RolesConfig.vue'
 import AccountConfig from '../../views/Layout/PersonalCenter/AccountConfig/AccountConfig.vue'
 
 const personRoutes = [
+  {
+    path: '/myWorkBench',
+    component: Layout,
+    redirect: '/myWorkBench/checkTask',
+    alwaysShow: true, // 永久显示
+    name: 'MyWorkBench',
+    meta: {
+      title: '我的工作台',
+      roles: ['admin']
+    },
+    children: [
+      {
+        path: 'checkTask',
+        component: CheckTask,
+        name: 'CheckTask',
+        meta: {
+          title: '审批任务',
+          roles: ['admin']
+        }
+      }
+    ]
+  },
   {
     path: '/taskList',
     component: Layout,
@@ -22,6 +45,7 @@ const personRoutes = [
         component: VehicleList,
         name: 'VehicleList',
         meta: {
+          icon: 'el-icon-menu',
           title: '车辆列表',
           roles: ['admin']
         }

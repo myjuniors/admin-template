@@ -44,12 +44,10 @@ router.beforeEach((to, from, next) => {
           store.dispatch('GetUserInfo')
             .then(() => {
               const roles = store.getters.roles
-              console.log(roles, '角色集合')
               store.dispatch('GenerateRoutes', roles)
                 .then(() => {
                   // 获取当前角色集合匹配到的路由菜单配置文件
                   const accessRoutes = store.state.permission.addRoutes
-                  console.log(accessRoutes, '匹配到的路由表')
                   // 动态生成路由
                   router.addRoutes(accessRoutes)
                   // 官方写法： hack方法 确保 addRoutes已完成、保证不出错

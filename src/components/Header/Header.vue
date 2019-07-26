@@ -13,8 +13,6 @@
       background-color="#001D24"
       text-color="#fff"
       active-text-color="#ffd04b">
-      <el-menu-item index="/myWorkBench">我的工作台</el-menu-item>
-
       <el-menu-item v-for="route in routes" :key="route.path" :index="route.path">{{route.meta.title}}</el-menu-item>
     </el-menu>
     <div class="right-user">
@@ -34,6 +32,7 @@
 
 <script type="text/javascript">
   import { mapState } from 'vuex'
+  import Bus from '../../store/eventBus'
   import { removeToken } from '../../untils/storage'
 
   export default {
@@ -47,15 +46,15 @@
     computed: {
       ...mapState(['permission']),
       routes () {
-        return this.permission.addRoutes
+        return this.permission.routes.filter(item => item.children)
       }
     },
     mounted () {
-      console.log(this.permission.addRoutes, '查看路由表');
+      console.log(this.routes, '查看路由表');
     },
     methods: {
-      handleSelect (key, keyPath) {
-        console.log(key, keyPath);
+      handleSelect (key) {
+        Bus.$emit('sendActiveIndex', key)
       },
       handleCommand (command) {
         if (command === 'logout') {

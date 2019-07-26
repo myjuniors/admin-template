@@ -5,30 +5,43 @@
       class="el-menu-vertical"
       @open="handleOpen"
       @close="handleClose">
-      <el-menu-item index="1">
-        <i class="el-icon-menu"></i>
-        <span slot="title">导航一</span>
-      </el-menu-item>
-      <el-menu-item index="2">
-        <i class="el-icon-document"></i>
-        <span slot="title">导航二</span>
-      </el-menu-item>
-      <el-menu-item index="3">
-        <i class="el-icon-setting"></i>
-        <span slot="title">导航三</span>
+      <el-menu-item v-for="child in childRoutes" :key="child.path" :index="child.path">
+        <i :class="child.meta.icon" v-if="child.meta.icon"></i>
+        <span slot="title">{{child.meta.title}}</span>
       </el-menu-item>
     </el-menu>
   </div>
 </template>
 
 <script type="text/javascript">
+  import Bus from '../../store/eventBus'
+  import { mapState } from 'vuex'
 
   export default {
     name: 'LeftMenu',
     data () { 
       return {
-        
+        currIndex: '',
+        childRoutes: []
       }
+    },
+    computed: {
+      ...mapState(['permission'])
+    },
+    watch: {
+      currIndex (newVal) {
+        const filterRoutes = this.permission.routes.filter(item => item.children)
+        if (newVal) {
+          this.childRoutes = filterRoutes.filter(item => (item.path === newVal))[0].children
+        }
+      }
+    },
+    mounted () {
+      Bus.$on('sendActiveIndex', data => {
+        this.currIndex = data
+      })
+      const filterRoutes = this.permission.routes.filter(item => item.children)
+      this.childRoutes = filterRoutes[0].children
     },
     methods: {
       handleOpen (key, keyPath) {
