@@ -1,10 +1,10 @@
 <template>
   <div class="left-menu">
     <el-menu
-      default-active="2"
+      :default-active="activeMenu"
+      :router="isOpenRouter"
       class="el-menu-vertical"
-      @open="handleOpen"
-      @close="handleClose">
+      @select="handleSelect">
       <el-menu-item v-for="child in childRoutes" :key="child.path" :index="child.path">
         <i :class="child.meta.icon" v-if="child.meta.icon"></i>
         <span slot="title">{{child.meta.title}}</span>
@@ -21,12 +21,17 @@
     name: 'LeftMenu',
     data () { 
       return {
+        isOpenRouter: true,
         currIndex: '',
         childRoutes: []
       }
     },
     computed: {
-      ...mapState(['permission'])
+      ...mapState(['permission']),
+      activeMenu () {
+        const route = this.$route
+        return route.matched[1].path.split('/')[2]
+      }
     },
     watch: {
       currIndex (newVal) {
@@ -41,13 +46,16 @@
         this.currIndex = data
       })
       const filterRoutes = this.permission.routes.filter(item => item.children)
-      this.childRoutes = filterRoutes[0].children
+      const listRoutes = filterRoutes.filter(item => {
+        const list = item.children.filter(childItem => (childItem.path === this.activeMenu))
+        if (list.length) {
+          return list
+        }
+      })
+      this.childRoutes = listRoutes[0].children
     },
     methods: {
-      handleOpen (key, keyPath) {
-        console.log(key, keyPath)
-      },
-      handleClose (key, keyPath) {
+      handleSelect (key, keyPath) {
         console.log(key, keyPath)
       }
     }

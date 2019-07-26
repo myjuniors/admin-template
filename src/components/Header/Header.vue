@@ -5,7 +5,7 @@
       <span>后台管理系统</span>
     </div>
     <el-menu
-      :default-active="activeIndex"
+      :default-active="activeMenu"
       class="el-menu"
       mode="horizontal"
       :router="isOpenRouter"
@@ -47,10 +47,11 @@
       ...mapState(['permission']),
       routes () {
         return this.permission.routes.filter(item => item.children)
-      }
-    },
-    mounted () {
-      console.log(this.routes, '查看路由表');
+      },
+      activeMenu () {
+        const route = this.$route
+        return route.matched[0].path
+      },
     },
     methods: {
       handleSelect (key) {

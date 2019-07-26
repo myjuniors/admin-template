@@ -2,6 +2,7 @@
 import Layout from '../../views/Layout/Layout.vue'
 import CheckTask from '../../views/Layout/MyWorkBench/CheckTask/CheckTask.vue'
 import VehicleList from '../../views/Layout/TaskList/VehicleList/VehicleList.vue'
+import BrandList from '../../views/Layout/TaskList/BrandList/BrandList.vue'
 import VehicleData from '../../views/Layout/DataScreening/VehicleData/VehicleData.vue'
 import RolesConfig from '../../views/Layout/AuthorityManagement/RolesConfig/RolesConfig.vue'
 import AccountConfig from '../../views/Layout/PersonalCenter/AccountConfig/AccountConfig.vue'
@@ -49,7 +50,17 @@ const personRoutes = [
           title: '车辆列表',
           roles: ['admin']
         }
-      }
+      },
+      {
+        path: 'brandList',
+        component: BrandList,
+        name: 'BrandList',
+        meta: {
+          icon: 'el-icon-menu',
+          title: '品牌列表',
+          roles: ['admin']
+        }
+      },
     ]
   },
   {
