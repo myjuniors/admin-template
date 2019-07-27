@@ -2,7 +2,7 @@
 
 
 module.exports = {
-  publicPath: '/', // 公共路径
+  publicPath: './', // 公共路径
   outputDir: process.env.NODE_ENV === "test" ? 'dist-test' : 'dist', // 不同的环境打不同包名
   devServer: { // 配置服务器
     port: 8000, // 端口号 
