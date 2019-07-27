@@ -47,7 +47,7 @@ export const constantRoutes = [
 ]
 
 export default new Router({
-  mode: 'history', // 开启 history 模式需要服务端支持
+  // mode: 'history', // 开启 history 模式需要服务端支持
   routes: constantRoutes
 })
 
