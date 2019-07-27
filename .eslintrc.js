@@ -13,5 +13,9 @@ module.exports = {
   },
   parserOptions: {
     parser: 'babel-eslint'
-  }
+  },
+  globals: {
+    'AMap': false,
+    'AMapUI': false
+  },
 }

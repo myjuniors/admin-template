@@ -24,7 +24,7 @@ const personRoutes = [
         component: CheckTask,
         name: 'CheckTask',
         meta: {
-          title: '审批任务',
+          title: '拖拽选址',
           roles: ['admin']
         }
       }

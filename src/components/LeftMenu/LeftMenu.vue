@@ -70,6 +70,9 @@
     background-color: #f0f2f5;
     .el-menu-vertical {
       height: 100%;
+      .el-menu-item {
+        text-align: center;
+      }
     }
   }
 </style>
