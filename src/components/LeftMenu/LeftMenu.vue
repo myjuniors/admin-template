@@ -66,7 +66,8 @@
   .left-menu {
     width: 210px;
     height: 100%;
-    background-color: deeppink;
+    padding: 10px 0;
+    background-color: #f0f2f5;
     .el-menu-vertical {
       height: 100%;
     }

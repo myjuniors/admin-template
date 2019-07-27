@@ -5,7 +5,11 @@
     </div>
     <div class="mainContainer">
       <LeftMenu/>
-      <router-view/>
+      <div class="right-container">
+        <div class="content-view">
+          <router-view/>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -41,5 +45,16 @@
     height: 100%;
     padding-top: 65px;
     display: flex;
+    .right-container {
+      width: 100%;
+      background-color: #f0f2f5;
+      padding: 10px;
+      .content-view {
+        padding: 20px;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+      }
+    }
   }
 </style>
