@@ -2,6 +2,10 @@
 - 几个小伙伴共同维护的一个后台管理系统模板，如果有需要，可以下载。
 - 希望对有帮助的同学，帮忙点个 star或者 fork 一下。
 
+### 项目预览地址
+
+- 后台管理系统模板访问地址：[https://avengit.github.io/admin-template/](https://avengit.github.io/admin-template/)
+
 ### 安装项目依赖
 ```
 cd admin-template
