@@ -1,20 +1,18 @@
 <template>
   <div class="container">
+    <div class="show-content">
+      您选择的地址为： <el-input v-model="address"></el-input>
+    </div>
     <el-amap
       vid="amap"
       class="mapContainer"
       :zoom="zoom"
       :center="center"
-      :scrollWheel="scrollWheel"
-      :toSearch="toSearch"
       :amapManager="amapManager"
+      :plugin="plugin"
       :events="events"
       >
     </el-amap>
-
-    <div class="show-content">
-      您选择的地址为： {{address ? address : '地图数据加载中。。。。'}}
-    </div>
   </div>
 </template>
 
@@ -28,14 +26,17 @@
       return {
         zoom: 16,
         center: [121.329402, 31.228667],
-        result: [],
         address: '',
-        radius: 100,
-        toSearch: false,
-        scrollWheel: false,
         amapManager,
-        map: null,
-        events: {}
+        events: {},
+        plugin: [{
+          pName: 'ToolBar',
+          events: {
+            init (o) {
+              console.log(o);
+            }
+          }
+        }]
       }
     },
     mounted () {
@@ -43,7 +44,6 @@
       this.events = {
         init (o) {
           console.log(o, 'mapContainer')
-          vm.map = o
           AMapUI.loadUI(['misc/PositionPicker'], PositionPicker => {
             const positionPicker = new PositionPicker({
                 mode: 'dragMap',
@@ -71,11 +71,15 @@
   .mapContainer {
     width: 100%;
     height: 500px;
+    border: 1px solid #ccc;
   }
   .show-content {
-    padding-top: 40px;
-    font-size: 20px;
-    font-weight: 700;
-    color: red;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    .el-input {
+      margin-left: 40px;
+      width: 600px;
+    }
   }
 </style>
