@@ -1,6 +1,8 @@
 // 引入路由组件
 import Layout from '../../views/Layout/Layout.vue'
 import CheckTask from '../../views/Layout/MyWorkBench/CheckTask/CheckTask.vue'
+import EchartDemo from '../../views/Layout/MyWorkBench/EchartDemo/EchartDemo.vue'
+import CarChart from '../../views/Layout/MyWorkBench/CarChart/CarChart.vue'
 import VehicleList from '../../views/Layout/TaskList/VehicleList/VehicleList.vue'
 import BrandList from '../../views/Layout/TaskList/BrandList/BrandList.vue'
 import VehicleData from '../../views/Layout/DataScreening/VehicleData/VehicleData.vue'
@@ -27,7 +29,25 @@ const personRoutes = [
           title: '拖拽选址',
           roles: ['admin']
         }
-      }
+      },
+      {
+        path: 'echartDemo',
+        component: EchartDemo,
+        name: 'EchartDemo',
+        meta: {
+          title: '柱状图表',
+          roles: ['admin']
+        }
+      },
+      {
+        path: 'carChart',
+        component: CarChart,
+        name: 'CarChart',
+        meta: {
+          title: '车仪表盘',
+          roles: ['admin']
+        }
+      },
     ]
   },
   {
