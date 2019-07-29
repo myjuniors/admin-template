@@ -46,7 +46,7 @@
     computed: {
       ...mapState(['permission']),
       routes () {
-        return this.permission.routes.filter(item => item.children)
+          return this.permission.routes.filter(item => item.children)
       },
       activeMenu () {
         const route = this.$route
