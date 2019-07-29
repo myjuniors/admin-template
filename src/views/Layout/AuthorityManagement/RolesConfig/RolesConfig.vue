@@ -12,8 +12,8 @@
         </el-form-item>
       </el-form>
     </div>
-    <el-button type="primary" @click="onAdd" >新建</el-button>
-    <el-button type="primary" @click="onDelete" >删除</el-button>
+    <el-button type="primary"  class="addBtn" @click="onAdd" >新建</el-button>
+    <el-button type="primary" class="deleteBtn" @click="onDelete" >删除</el-button>
     <!--角色列表-->
     <Table
       :tableData="tableData"
@@ -118,6 +118,12 @@ export default {
 <style lang="less" rel="stylesheet/less" scoped>
   .forminputSearch{
     border-bottom: solid 10px #f0f2f5;
-
   }
+  .deleteBtn{
+    margin:10px 10px;
+  }
+  .addBtn{
+    margin:10px 0 10px 10px;
+  }
+ 
 </style>

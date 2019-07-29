@@ -17,9 +17,9 @@
             <p>正在读取数据...</p>
           </div>
         </template>
-<!--
-        <img v-else class="data-pic" src="./../assets/img/zanwushuju.png" alt />
--->
+
+        <img v-else class="data-pic" src="../../assets/images/zanwushuju.png" alt />
+
       </template>
       <!--selection选择框-->
       <el-table-column v-if="options.mutiSelect" type="selection" style="width:50px" align="center"></el-table-column>
@@ -201,4 +201,31 @@ export default {
   .progress /deep/ .el-progress-bar {
     width: 80%;
   }
+  //分页开始
+  .pagination {
+    overflow: auto;
+  }
+
+  .page_size {
+      float      : left;
+      padding    : 26px 40px 22px 40px;
+      height     : 28px;
+      line-height: 28px;
+      font-size  : 13px;
+      color      : #222222;
+  }
+  .pagination_style {
+    display   : inline-block;
+    text-align: right;
+    padding   : 26px 40px 22px 40px !important;
+    float     : right;
+  } 
+  .el-pagination.is-background .el-pager li:not(.disabled).active {
+      background-color: #FF6329 !important;
+  }
+
+  .el-pager li:hover {
+      color: #FFEAD7;
+  }
+  //分页结束
 </style>
