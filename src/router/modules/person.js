@@ -3,6 +3,7 @@ import Layout from '../../views/Layout/Layout.vue'
 import CheckTask from '../../views/Layout/MyWorkBench/CheckTask/CheckTask.vue'
 import EchartDemo from '../../views/Layout/MyWorkBench/EchartDemo/EchartDemo.vue'
 import CarChart from '../../views/Layout/MyWorkBench/CarChart/CarChart.vue'
+import ActLine from '../../views/Layout/MyWorkBench/ActLine/ActLine.vue'
 import VehicleList from '../../views/Layout/TaskList/VehicleList/VehicleList.vue'
 import BrandList from '../../views/Layout/TaskList/BrandList/BrandList.vue'
 import VehicleData from '../../views/Layout/DataScreening/VehicleData/VehicleData.vue'
@@ -45,6 +46,15 @@ const personRoutes = [
         name: 'CarChart',
         meta: {
           title: '车仪表盘',
+          roles: ['admin']
+        }
+      },
+      {
+        path: 'actLine',
+        component: ActLine,
+        name: 'ActLine',
+        meta: {
+          title: '动态折线',
           roles: ['admin']
         }
       },
