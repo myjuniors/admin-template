@@ -86,7 +86,7 @@ export default {
         this.option.xAxis[0].data.shift();
         this.option.xAxis[0].data.push(this.axisData);
         myChart.setOption(this.option);
-      }, 2000)
+      }, 1000)
     }
   }
 }
