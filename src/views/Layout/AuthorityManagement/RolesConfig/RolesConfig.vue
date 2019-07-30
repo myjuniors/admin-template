@@ -35,6 +35,9 @@
 <script type="text/javascript">
 import AddRole from './AddRole'
 import Table from "../../../../components/Table/table";
+import {
+  reqRoleList,
+} from '../../../../api/common.js'
 export default {
   name: "RolesConfig",
   data () {
@@ -87,9 +90,21 @@ export default {
 
     }
   },
+  mounted () {
+    this.getRoleList()
+  },
   methods:{
+    //获取角色列表
+    getRoleList () {
+      const result = reqRoleList()
+      if (result.resultCode === 0) {
+        this.tableData = result.data.list
+        
+      }
+    },
+    //列表是否可以点选
     handleSelectionChange () {
-        console.log(111);
+        console.log(1);
     },
     onSearch () {
         console.log('search');
