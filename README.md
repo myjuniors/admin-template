@@ -17,7 +17,7 @@ npm install
 npm start
 ```
 
-### 测试环境运行
+### 编译打包项目到 dist-test文件目录下 (测试打包时使用)
 ```
 npm run test
 ```
