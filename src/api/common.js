@@ -16,4 +16,4 @@ export const reqRegistryAccount = (reqData) => ajax('/registry', reqData, 'POST'
 export const reqGetUserInfo = () => ajax('/getUserInfo')
 
 //获取角色列表
-export const reqRoleList = () =>ajax('/getRoleList')
+export const reqRoleList = () => ajax('/getRoleList')
