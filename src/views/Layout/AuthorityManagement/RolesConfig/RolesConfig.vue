@@ -95,11 +95,12 @@ export default {
   },
   methods:{
     //获取角色列表
-    getRoleList () {
-      const result = reqRoleList()
+    async getRoleList () {
+      const result = await reqRoleList()
       if (result.resultCode === 0) {
         this.tableData = result.data.list
-        
+        this.pagination.total = result.data.total;
+
       }
     },
     //列表是否可以点选
