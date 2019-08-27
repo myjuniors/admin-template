@@ -81,6 +81,8 @@
 </script>
 
 <style rel="stylesheet/less" lang="less" scoped>
-
+  .roleContainer {
+    height: 100%; 
+  }
 </style>
 
