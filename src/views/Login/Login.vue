@@ -1,6 +1,6 @@
 <template>
-  <div class="loginContainer">
-     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
+  <div class="Container">
+     <el-form ref="Form" :model="Form" :rules="Rules" class="-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
         <h3 class="title">
@@ -13,7 +13,7 @@
 
         </span>
         <el-input
-          v-model="loginForm.username"
+          v-model="Form.username"
           placeholder="请输入账号"
           name="username"
           type="text"
@@ -26,19 +26,19 @@
 
         </span>
         <el-input
-          v-model="loginForm.password"
+          v-model="Form.password"
           type="password"
           placeholder="请输入密码"
           name="password"
           auto-complete="on"
-          @keyup.enter.native="handleLogin"
+          @keyup.enter.native="handle"
         />
         <div class="forgetContainer">
           <el-button type="text" class="forgetPassword">忘记密码？</el-button>
         </div>
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" class="loginBtn" @click.native.prevent="handleLogin">
+      <el-button :loading="loading" type="primary" class="Btn" @click.native.prevent="handle">
         登录
       </el-button>
 
@@ -52,14 +52,12 @@
 </template>
 
 <script type="text/javascript">
-  import { validUsername } from '../../untils/validate'
-
   export default {
     name: 'Login',
     data() {
       const validateUsername = (rule, value, callback) => {
-        if (!validUsername(value)) {
-          callback(new Error('请输入正确的账号'))
+        if (!(value.length)) {
+          callback(new Error('请输入账号'))
         } else {
           callback()
         }
@@ -72,11 +70,11 @@
         }
       }
       return {
-        loginForm: {
+        Form: {
           username: '',
           password: ''
         },
-        loginRules: {
+        Rules: {
           username: [{ required: true, trigger: 'blur', validator: validateUsername }],
           password: [{ required: true, trigger: 'blur', validator: validatePassword }]
         },
@@ -84,12 +82,12 @@
       }
     },
     methods: {
-      handleLogin() {
-        this.$refs.loginForm.validate(valid => {
+      handle() {
+        this.$refs.Form.validate(valid => {
           if (valid) {
             this.loading = true
 
-            this.$store.dispatch('Login', this.loginForm)
+            this.$store.dispatch('Login', this.Form)
               .then(() => {
                 this.$router.replace('/')
                 this.loading = false
@@ -113,10 +111,10 @@
 <style rel="stylesheet/less" lang="less" scoped>
   @import "../../styles/common/common.less";
 
-  .loginContainer {
+  .Container {
     .bgContainer;
     background-image: url('./images/bg.jpg');
-    .login-form {
+    .-form {
       width: 360px;
       height: 320px;
       padding-top: 10px;
@@ -153,7 +151,7 @@
           font-size: 14px;
         }
       }
-      .loginBtn {
+      .Btn {
         width: 70%;
         margin: 10px 0;
       }

@@ -20,8 +20,5 @@ export default {
 <style lang="less" rel="stylesheet/less" scoped>
   .roleContianer {
     height: 100%;
-    Table {
-      height: 100%;
-    }
   }
 </style>
