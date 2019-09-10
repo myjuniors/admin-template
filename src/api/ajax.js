@@ -32,7 +32,7 @@ service.interceptors.request.use(
   },
   error => {
     // 控制台输出请求错误、方便调试
-    console.log(error)
+    console.log(error + '===========')
     Promise.reject(error)
   }
 )
@@ -58,7 +58,7 @@ service.interceptors.response.use(
   },
   error => {
     // 控制台输出请求响应错误、方便排查后台问题
-    console.log('err' + error)
+    console.log('>>>>>>' + error.response)
     if (error.response.status === 401) {
       // 401: 非法的 token
       MessageBox.confirm(
@@ -107,12 +107,12 @@ export default function ajax (url, data = {}, type = 'GET') {
     })
     .catch(error => {
       // 3. 如果失败了, 不调用 reject(reason), 而是提示异常信息
-      // reject(error)
       Message({
-        message: '请求出错了: ' + error.message,
+        message: '请求出错了: MMMMM' + error.message,
         type: 'error',
         duration: 5 * 1000
       })
+      // reject(error)
     })
   })
 }

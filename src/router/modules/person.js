@@ -18,7 +18,7 @@ const personRoutes = [
     alwaysShow: true, // 永久显示
     name: 'MyWorkBench',
     meta: {
-      title: '我的工作台',
+      title: '可视化图表',
       roles: ['admin']
     },
     children: [

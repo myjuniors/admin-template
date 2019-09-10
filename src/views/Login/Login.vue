@@ -82,7 +82,7 @@
       }
     },
     methods: {
-      handle() {
+      handle () {
         this.$refs.Form.validate(valid => {
           if (valid) {
             this.loading = true
