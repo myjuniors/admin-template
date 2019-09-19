@@ -9,6 +9,7 @@ import store from './store'
 import './styles/common/reset.css'
 import './plugins/element.js'
 import './personalRole'
+import '../mock/mock-server.js' // 模拟请求数据
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)

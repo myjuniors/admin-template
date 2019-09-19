@@ -4,7 +4,8 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 import permission from './modules/permission'
-import { getToken, setToken } from '../untils/storage'
+import { getToken, setToken, removeToken } from '../untils/storage'
+import { resetRouter } from '@/router'
 import {
   SET_TOKEN,
   SAVE_USER_INFO
@@ -44,6 +45,16 @@ export default new Vuex.Store({
         const { token } = result.data
         commit(SET_TOKEN, token)
       }
+    },
+    Logout ({ commit }) {
+      commit(SET_TOKEN, '')
+      const userInfo = {
+        roles: []
+      }
+      commit(SAVE_USER_INFO, userInfo)
+      removeToken()
+      // 重置动态添加的路由表，这样就不需要重新刷新页面，才能更新路由表了
+      resetRouter()
     },
     async GetUserInfo ({ commit }) {
       const result = await reqGetUserInfo()

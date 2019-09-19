@@ -67,7 +67,7 @@ const personRoutes = [
     alwaysShow: true, // 永久显示
     name: 'TaskList',
     meta: {
-      title: '任务列表',
+      title: '组件示例',
       roles: ['admin']
     },
     children: [
@@ -77,7 +77,7 @@ const personRoutes = [
         name: 'VehicleList',
         meta: {
           icon: 'el-icon-menu',
-          title: '车辆列表',
+          title: '表单验证',
           roles: ['admin']
         }
       },
@@ -87,7 +87,7 @@ const personRoutes = [
         name: 'BrandList',
         meta: {
           icon: 'el-icon-menu',
-          title: '品牌列表',
+          title: '上传组件',
           roles: ['admin']
         }
       },

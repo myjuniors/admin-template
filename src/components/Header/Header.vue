@@ -33,7 +33,6 @@
 <script type="text/javascript">
   import { mapState } from 'vuex'
   import Bus from '../../store/eventBus'
-  import { removeToken } from '../../untils/storage'
 
   export default {
     name: 'Header',
@@ -59,8 +58,10 @@
       },
       handleCommand (command) {
         if (command === 'logout') {
-          removeToken()
-          this.$router.replace('/login')
+          this.$store.dispatch('Logout')
+            .then(() => {
+              this.$router.replace('/login')
+            })
         }
       }
     }

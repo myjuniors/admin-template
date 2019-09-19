@@ -9,9 +9,9 @@
     <el-form-item label="邮箱" prop="email">
       <el-input v-model="ruleForm.email" autocomplete="off"></el-input>
     </el-form-item>
-    <el-form-item>
-      <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
-      <el-button type="danger" @click="resetForm('ruleForm')">重置</el-button>
+    <el-form-item class="btn-group">
+      <el-button type="primary" size="small" @click="submitForm('ruleForm')">登录</el-button>
+      <el-button type="danger" size="small" @click="submitresetForm('ruleForm')">重置</el-button>
     </el-form-item>
   </el-form>
 </template>
@@ -68,6 +68,12 @@
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
-
+<style lang="less" rel="stylesheet/less" scoped>
+  .demo-ruleForm {
+    width: 400px;
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 </style>

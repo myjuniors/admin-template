@@ -14,8 +14,8 @@ import personRoutes from './modules/person'
 import Layout from '../views/Layout/Layout.vue'
 import Login from '../views/Login/Login.vue'
 import Registry from '../views/Registry/Registry.vue'
-import NoAccess from '../views/Registry/Registry.vue'
-import NoFound from '../views/Registry/Registry.vue'
+import NoAccess from '../views/NoAccess/NoAccess.vue'
+import NoFound from '../views/NoFound/NoFound.vue'
 
 export const constantRoutes = [
   // 公共的页面
@@ -46,9 +46,25 @@ export const constantRoutes = [
   },
 ]
 
-export default new Router({
+const createRouter = () => new Router({
   // mode: 'history', // 开启 history 模式需要服务端支持
-  routes: constantRoutes
+  routes: constantRoutes,
+  // 防止 在A页面的某个位置跳转到B页面之后，防止B页面还停留在A页面的位置处
+  scrollBehavior: () => ({y: 0})
 })
 
+const router = createRouter()
+/* 
+  通过hack的方式，处理动态清除注册的路由
+  这种方式不需要重新刷新页面
+*/
+export function resetRouter () {
+  // 创建一个空路由对象
+  const newRouter = createRouter()
+  // 将已经添加的路由的元信息meta 重置为 空
+  router.matcher = newRouter.matcher
+  console.log('重置了动态添加的路由')
+}
+
+export default router
 export const asyncRoutes = personRoutes
