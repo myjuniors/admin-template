@@ -7,7 +7,9 @@
       <LeftMenu/>
       <div class="right-container">
         <div class="content-view">
-          <router-view/>
+          <keep-alive>
+            <router-view/>
+          </keep-alive>
         </div>
       </div>
     </div>

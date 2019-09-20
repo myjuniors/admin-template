@@ -55,6 +55,10 @@ router.beforeEach((to, from, next) => {
                 })
             })
         } catch (error) {
+          store.dispatch('ResetToken')
+            .then(() => {
+              console.log('出现获取用户信息错误的时候，此时重置token的值')
+            })
           Message.error(error || '出现错误了')
           next(`/login?redirect=${to.path}`)
           NProgress.done()

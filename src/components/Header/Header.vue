@@ -22,7 +22,7 @@
         </span>
         <span class="role-name">管理员</span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item command="person">个人中心</el-dropdown-item>
+          <el-dropdown-item command="toggleRole">切换角色</el-dropdown-item>
           <el-dropdown-item command="logout">退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -61,6 +61,12 @@
           this.$store.dispatch('Logout')
             .then(() => {
               this.$router.replace('/login')
+            })
+        } else if (command === 'toggleRole') {
+          const role = 'person'
+          this.$store.dispatch('ChangeUserRole', { role })
+            .then(() => {
+              console.log('角色切换成功了')
             })
         }
       }

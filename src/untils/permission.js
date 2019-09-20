@@ -19,7 +19,7 @@ export default function checkPermission (value) {
     }
     return true
   } else {
-    console.error(`需要对应的角色! Like v-permission="['admin','editor']"`)
+    console.error(`需要对应的角色! Like v-if="checkPermission(['admin'])"`)
     return false
   }
 }

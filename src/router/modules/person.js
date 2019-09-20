@@ -19,7 +19,7 @@ const personRoutes = [
     name: 'MyWorkBench',
     meta: {
       title: '可视化图表',
-      roles: ['admin']
+      roles: ['admin', 'person']
     },
     children: [
       {
@@ -28,7 +28,7 @@ const personRoutes = [
         name: 'CheckTask',
         meta: {
           title: '拖拽选址',
-          roles: ['admin']
+          roles: ['admin', 'person']
         }
       },
       {
@@ -37,7 +37,7 @@ const personRoutes = [
         name: 'EchartDemo',
         meta: {
           title: '柱状图表',
-          roles: ['admin']
+          roles: ['admin', 'person']
         }
       },
       {
@@ -46,7 +46,7 @@ const personRoutes = [
         name: 'CarChart',
         meta: {
           title: '车仪表盘',
-          roles: ['admin']
+          roles: ['admin', 'person']
         }
       },
       {
@@ -55,7 +55,7 @@ const personRoutes = [
         name: 'ActLine',
         meta: {
           title: '动态折线',
-          roles: ['admin']
+          roles: ['admin', 'person']
         }
       },
     ]
@@ -68,7 +68,7 @@ const personRoutes = [
     name: 'TaskList',
     meta: {
       title: '组件示例',
-      roles: ['admin']
+      roles: ['person']
     },
     children: [
       {
@@ -78,7 +78,7 @@ const personRoutes = [
         meta: {
           icon: 'el-icon-menu',
           title: '表单验证',
-          roles: ['admin']
+          roles: ['person']
         }
       },
       {
@@ -88,7 +88,7 @@ const personRoutes = [
         meta: {
           icon: 'el-icon-menu',
           title: '上传组件',
-          roles: ['admin']
+          roles: ['person']
         }
       },
     ]
@@ -145,7 +145,7 @@ const personRoutes = [
     name: 'PersonalCenter',
     meta: {
       title: '个人中心',
-      roles: ['admin']
+      roles: ['admin', 'person']
     },
     children: [
       {
@@ -154,7 +154,7 @@ const personRoutes = [
         name: 'AccountConfig',
         meta: {
           title: '账号设置',
-          roles: ['admin']
+          roles: ['admin', 'person']
         }
       }
     ]
