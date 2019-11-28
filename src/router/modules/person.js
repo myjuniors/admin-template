@@ -1,11 +1,7 @@
 // 引入路由组件
 import Layout from '../../views/Layout/Layout.vue'
-import CheckTask from '../../views/Layout/MyWorkBench/CheckTask/CheckTask.vue'
-import EchartDemo from '../../views/Layout/MyWorkBench/EchartDemo/EchartDemo.vue'
-import CarChart from '../../views/Layout/MyWorkBench/CarChart/CarChart.vue'
 import ActLine from '../../views/Layout/MyWorkBench/ActLine/ActLine.vue'
 import VehicleList from '../../views/Layout/TaskList/VehicleList/VehicleList.vue'
-import BrandList from '../../views/Layout/TaskList/BrandList/BrandList.vue'
 import VehicleData from '../../views/Layout/DataScreening/VehicleData/VehicleData.vue'
 import RolesConfig from '../../views/Layout/AuthorityManagement/RolesConfig/RolesConfig.vue'
 import AccountConfig from '../../views/Layout/PersonalCenter/AccountConfig/AccountConfig.vue'
@@ -14,7 +10,7 @@ const personRoutes = [
   {
     path: '/myWorkBench',
     component: Layout,
-    redirect: '/myWorkBench/checkTask',
+    redirect: '/myWorkBench/actLine',
     alwaysShow: true, // 永久显示
     name: 'MyWorkBench',
     meta: {
@@ -22,33 +18,6 @@ const personRoutes = [
       roles: ['admin', 'person']
     },
     children: [
-      {
-        path: 'checkTask',
-        component: CheckTask,
-        name: 'CheckTask',
-        meta: {
-          title: '拖拽选址',
-          roles: ['admin', 'person']
-        }
-      },
-      {
-        path: 'echartDemo',
-        component: EchartDemo,
-        name: 'EchartDemo',
-        meta: {
-          title: '柱状图表',
-          roles: ['admin', 'person']
-        }
-      },
-      {
-        path: 'carChart',
-        component: CarChart,
-        name: 'CarChart',
-        meta: {
-          title: '车仪表盘',
-          roles: ['admin', 'person']
-        }
-      },
       {
         path: 'actLine',
         component: ActLine,
@@ -80,17 +49,7 @@ const personRoutes = [
           title: '表单验证',
           roles: ['person']
         }
-      },
-      {
-        path: 'brandList',
-        component: BrandList,
-        name: 'BrandList',
-        meta: {
-          icon: 'el-icon-menu',
-          title: '上传组件',
-          roles: ['person']
-        }
-      },
+      }
     ]
   },
   {
