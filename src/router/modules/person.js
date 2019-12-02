@@ -1,6 +1,7 @@
 // 引入路由组件
 import Layout from '../../views/Layout/Layout.vue'
 import ActLine from '../../views/Layout/MyWorkBench/ActLine/ActLine.vue'
+import DiyTable from '../../views/Layout/MyWorkBench/DiyTable/DiyTable.vue'
 import VehicleList from '../../views/Layout/TaskList/VehicleList/VehicleList.vue'
 import VehicleData from '../../views/Layout/DataScreening/VehicleData/VehicleData.vue'
 import RolesConfig from '../../views/Layout/AuthorityManagement/RolesConfig/RolesConfig.vue'
@@ -24,6 +25,15 @@ const personRoutes = [
         name: 'ActLine',
         meta: {
           title: '动态折线',
+          roles: ['admin', 'person']
+        }
+      },
+      {
+        path: 'diyTable',
+        component: DiyTable,
+        name: 'DiyTable',
+        meta: {
+          title: '自定义表单',
           roles: ['admin', 'person']
         }
       },
